@@ -1,10 +1,12 @@
 # schedule-crawler
 
 ## Description
-Scraps the website and generates a csv file that can be imported into calendar applications.
+Scraps website and generates a csv file that can be imported into calendar applications.
 
 ### Installation
-Run the following commands:
+1. Clone the repo.
+2. Update login details in .env file.
+3. Run the following commands:
 ```py
 pip install -r requirements.txt
 ```
