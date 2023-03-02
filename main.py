@@ -1,8 +1,8 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 from playwright.sync_api import Playwright, sync_playwright
-from env import user_id, password
 
+from env import password, user_id
 
 columns = ["Subject", "Start Date", "Start Time", "End Time", "Description"]
 
@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_placeholder("User ID").fill(user_id)
     page.get_by_placeholder("Password").fill(password)
     page.get_by_placeholder("Password").press("Enter")
-    page.get_by_role("link", name="1 Class").click()
+    page.get_by_role("link", name="2 Class").click()
     page.wait_for_load_state("networkidle")
 
     html = page.content()
