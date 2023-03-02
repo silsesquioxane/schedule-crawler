@@ -1,3 +1,5 @@
+from datetime import date
+
 import pandas as pd
 from bs4 import BeautifulSoup
 from playwright.sync_api import Playwright, sync_playwright
@@ -34,7 +36,11 @@ def run(playwright: Playwright) -> None:
     df = df.replace(to_replace="\u200b", value="", regex=True)
     df = df.reindex(columns=columns)
 
-    df.to_csv("TFIP BCG AI 2023 Calender.csv", index=False, encoding="utf-8")
+    df.to_csv(
+        f"TFIP BCG AI 2023 Calender {date.today().strftime('%Y%m%d')}.csv",
+        index=False,
+        encoding="utf-8",
+    )
     print(f"Job's done!\n{df}")
 
     context.close()
